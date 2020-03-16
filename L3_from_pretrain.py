@@ -161,6 +161,8 @@ def train(model, args, train_dataset, train_dataloader, dev_dataset, dev_dataloa
     torch.cuda.manual_seed_all(seed_val)
     
     # Store the average loss after each epoch so we can plot them.
+    f1_values_train = []
+    f1_values_dev = []
     loss_values = []
     
     # For each epoch...
@@ -257,13 +259,15 @@ def train(model, args, train_dataset, train_dataloader, dev_dataset, dev_dataloa
             
 
         # Calculate the average loss over the training data.
-        avg_train_loss = total_loss / len(train_dataloader)            
+        avg_train_loss = total_loss / len(train_dataloader)
+        f1 = flat_f1(all_preds, all_labels)  
+        f1_values_train.append(f1)         
     
         # Store the loss value for plotting the learning curve.
         loss_values.append(avg_train_loss)
 
         print("")
-        print("  F1: {0:.2f}".format(flat_f1(all_preds, all_labels)))
+        print("  F1: {0:.2f}".format(f1))
         print("  Average training loss: {0:.2f}".format(avg_train_loss))
         print("  Training epoch took: {:}".format(format_time(time.time() - t0)))
         
@@ -332,12 +336,15 @@ def train(model, args, train_dataset, train_dataloader, dev_dataset, dev_dataloa
         # print(all_preds)
         # print(all_labels)
         # print(f1(all_preds,all_labels))
-        # print(flat_f1(all_preds, all_labels))
-        print("  F1: {0:.2f}".format(flat_f1(all_preds, all_labels)))
+        f1 = flat_f1(all_preds, all_labels)
+        f1_values_dev.append(f1)
+        print("  F1: {0:.2f}".format(f1))
         print("  Accuracy: {0:.2f}".format(eval_accuracy/nb_eval_examples))
         print("  Validation took: {:}".format(format_time(time.time() - t0)))
 
     print("")
+    print("F1 Train:", f1_values_train)
+    print("F1 Dev:", f1_values_dev)
     print("Training complete!")
 
 
