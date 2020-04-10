@@ -1,6 +1,7 @@
 # W266-Final-Project
+Neha Kumar and Sayan Das
 
-Descriptions of each of the files and folers are below:
+Descriptions of each of the files and folders are below:
 
 best_model_output.txt: contains the text output of the best run on L3_classification. Visualizations and final findings are based on these results
 
