@@ -1,3 +1,5 @@
+# Reference https://github.com/danwild/sagemaker-sentiment-analysis/blob/master/SageMaker%20Project.ipynb
+
 import torch.nn as nn
 
 class LSTMClassifier(nn.Module):
