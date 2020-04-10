@@ -1,3 +1,5 @@
+# Reference https://github.com/danwild/sagemaker-sentiment-analysis/blob/master/SageMaker%20Project.ipynb
+
 import argparse
 import json
 import os
