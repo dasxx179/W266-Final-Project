@@ -8,7 +8,6 @@ This repository contains all the code that was ultimately used to develop this F
 * **L3 Bert.ipynb:** Notebook used to experiment with fine-tuning BERT on the L3 Data
 * **L3_from_pretrain.py:** Script used to train L3 Data on fine-tuned model and evaluate F1 scores
 * **L3_rebuild.py:** Idk looks basically same as above Neha will know
-* **BERT_Preprocess.ipynb:** Notebook used to fine-tune BERT on L1 and L2 Data and train on L3 Data
 
 The following code references were used:
 
