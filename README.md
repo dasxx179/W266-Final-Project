@@ -10,7 +10,7 @@ best_model_output.txt: contains the text output of the best run on L3_classifica
 
 W266_paper.pdf: Final Paper
 
-## data 
+## data
 metrics.xlsx: Contains results from all hyperparameter runs. Included in the appendix of the final paper
 
 Visualizations.ipynb: Contains the code used to generate the graphics in the final paper
@@ -27,7 +27,7 @@ L3 and Test Data Preprocessing.ipynb: Contains code to preprocess L3 and Test da
 ## training_scripts
 L1_pretraining.ipynb: Runs the L1 data using [Huggingface's run_language_modeling.py script](https://github.com/huggingface/transformers/blob/master/examples/run_language_modeling.py) to pre-train the model. This was split into 10 subtasks to be more manageable
 
-L2_pretrainnig.ipynb: Runs the L2 data using [Huggingface's run_language_modeling.py script](https://github.com/huggingface/transformers/blob/master/examples/run_language_modeling.py) to pre-train the model
+L2_pretraining.ipynb: Runs the L2 data using [Huggingface's run_language_modeling.py script](https://github.com/huggingface/transformers/blob/master/examples/run_language_modeling.py) to pre-train the model
 
 L3_classification.ipynb: Runs the L3 data and classification task using the L3_from_pretrain.py script
 
@@ -45,8 +45,8 @@ train_lstm.py: Training script for LSTM Baseline model
 * For LSTM Baseline model (lstm_baseline_cleaned.ipynb, model_lstm.py, and train_lstm.py): https://github.com/danwild/sagemaker-sentiment-analysis
 * Pretraining script was directly leveraged from [Huggingface](https://github.com/huggingface/transformers/blob/master/examples/run_language_modeling.py)
 * For L3 and Test Data Preprocessing.ipynb: https://mccormickml.com/2019/07/22/BERT-fine-tuning/#3-tokenization--input-formatting
-* For L3_from_pretrain.py: 
-    - https://github.com/huggingface/transformers/blob/master/examples/run_glue.py 
+* For L3_from_pretrain.py:
+    - https://github.com/huggingface/transformers/blob/master/examples/run_glue.py
     - https://aws.amazon.com/blogs/machine-learning/maximizing-nlp-model-performance-with-automatic-model-tuning-in-amazon-sagemaker/
     - https://github.com/danwild/sagemaker-sentiment-analysis/blob/163913a21837683e7605f6122ad2c10718347f65/train/train.py#L45
     - https://mccormickml.com/2019/07/22/BERT-fine-tuning/#3-tokenization--input-formatting
@@ -55,7 +55,7 @@ train_lstm.py: Training script for LSTM Baseline model
 ## Data Sources
 
 ### Test Data
-- Websites that were scraped for Democratic candidates are within Scarper_test_data.ipynb
+- Websites that were scraped for Democratic candidates are within Scraper_test_data.ipynb
 - Trump Tweets: http://www.trumptwitterarchive.com/archive
 
 ### L3 Data
