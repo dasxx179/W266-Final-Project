@@ -1,5 +1,8 @@
 # W266-Final-Project
-Neha Kumar and Sayan Das
+### Authors
+
+* Sayan Das
+* Neha Kumar
 
 Descriptions of each of the files and folders are below:
 
