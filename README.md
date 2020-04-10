@@ -3,7 +3,6 @@
 This repository contains all the code that was ultimately used to develop this Final Project.  The files are as follows:
 
 * **lstm_baseline.ipynb:** Used to create the baseline LSTM model for reference
-* **pytorch-practice.ipynb:** Used to experiment with pytorch 
 * **pretraining.py:** Script used in combination with **L1 Pretraining.ipynb** to pretrain the L1 Data
 * **L1 Pretraining.ipynb:** Notebook used in combination with **pretraining.py** to pretrain the L1 Data
 * **L3 Bert.ipynb:** Notebook used to experiment with fine-tuning BERT on the L3 Data
