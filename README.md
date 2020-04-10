@@ -8,6 +8,8 @@ Descriptions of each of the files and folders are below:
 
 best_model_output.txt: contains the text output of the best run on L3_classification. Visualizations and final findings are based on these results
 
+W266_paper.pdf: Final Paper
+
 ## data 
 metrics.xlsx: Contains results from all hyperparameter runs. Included in the appendix of the final paper
 
