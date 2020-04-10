@@ -1,23 +1,11 @@
+# SOURCES: We acknowledge and give thanks to the following technical resources, guides, and example scripts to inform the creation of this .py script
+# Based off example https://github.com/huggingface/transformers/blob/master/examples/run_glue.py 
 # Based off example https://aws.amazon.com/blogs/machine-learning/maximizing-nlp-model-performance-with-automatic-model-tuning-in-amazon-sagemaker/
 # Based off example https://github.com/danwild/sagemaker-sentiment-analysis/blob/163913a21837683e7605f6122ad2c10718347f65/train/train.py#L45
 # Based off example https://mccormickml.com/2019/07/22/BERT-fine-tuning/#3-tokenization--input-formatting
 
-# coding=utf-8
-# Copyright 2018 The Google AI Language Team Authors and The HuggingFace Inc. team.
-# Copyright (c) 2018, NVIDIA CORPORATION.  All rights reserved.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-""" Finetuning the library models for sequence classification on GLUE (Bert, XLM, XLNet, RoBERTa)."""
+
+# GOAL: Use a pre-trained model and run the final Sequence classification task
 
 from __future__ import absolute_import, division, print_function
 
@@ -350,7 +338,7 @@ def train(model, args, train_dataset, train_dataloader, dev_dataset, dev_dataloa
 
 def evaluate(candidate, args, model):
     print("Evaluate on Test Dataset!")
-    examples = pd.read_csv(os.path.join(args.data_dir, '%s.tsv'%candidate), sep = "\t", header = 0)
+    examples = pd.read_csv(os.path.join(args.data_dir, '%s.tsv'%candidate), sep = "\t", header = 0, lineterminator='\n')
     print("Num records:",examples.shape[0])
     
     all_input_ids = examples.id.to_list()
@@ -403,7 +391,6 @@ def evaluate(candidate, args, model):
         
     # Now calculate the stance on various issues
     agg = collections.Counter(predictions)
-    print("Counter Object")
     
     try:
         immigration_stance = (((agg[0] - agg[1]) * 1.0 / (agg[0] + agg[1])) + 1) * 0.5
@@ -420,15 +407,45 @@ def evaluate(candidate, args, model):
     except:
         medicare_stance = 0.5
     print("medicare_stance",medicare_stance)
+    try:
+        abortion_stance = (((agg[6] - agg[7]) * 1.0 / (agg[6] + agg[7])) + 1) * 0.5
+    except:
+        abortion_stance = 0.5
+    print("abortion_stance",abortion_stance)
+    try:
+        free_college_stance = (((agg[8] - agg[9]) * 1.0 / (agg[8] + agg[9])) + 1) * 0.5
+    except:
+        free_college_stance = 0.5
+    print("free_college_stance",free_college_stance)
+    try:
+        spending_stance = (((agg[10] - agg[11]) * 1.0 / (agg[10] + agg[11])) + 1) * 0.5
+    except:
+        spending_stance = 0.5
+    print("spending_stance",spending_stance)
+    try:
+        wealth_tax_stance = (((agg[12] - agg[13]) * 1.0 / (agg[12] + agg[13])) + 1) * 0.5
+    except:
+        wealth_tax_stance = 0.5
+    print("wealth_tax_stance",wealth_tax_stance)
+
+
     print('Total Predictions:', len(predictions))
     
     immigration_importance = (agg[0] + agg[1]) * 1.0 / len(predictions)
     guns_importance = (agg[2] + agg[3]) * 1.0 / len(predictions)
     medicare_importance = (agg[4] + agg[5]) * 1.0 / len(predictions)
+    abortion_importance = (agg[6] + agg[7]) * 1.0 / len(predictions)
+    college_importance = (agg[8] + agg[9]) * 1.0 / len(predictions)
+    spending_importance = (agg[10] + agg[11]) * 1.0 / len(predictions)
+    tax_importance = (agg[12] + agg[13]) * 1.0 / len(predictions)
     
     print(candidate, ': stance on immigration:', immigration_stance, ".... Relative Importance:", immigration_importance)
     print(candidate, ':stance on guns:', gun_stance, ".... Relative Importance:", guns_importance)
     print(candidate, ': stance on medicare:', medicare_stance, ".... Relative Importance:", medicare_importance)
+    print(candidate, ': stance on abortion:', abortion_stance, ".... Relative Importance:", abortion_importance)
+    print(candidate, ': stance on free college:', free_college_stance, ".... Relative Importance:", college_importance)
+    print(candidate, ': stance on military spending:', spending_stance, ".... Relative Importance:", spending_importance)
+    print(candidate, ': stance on wealth tax:', wealth_tax_stance, ".... Relative Importance:", tax_importance)
 
 def load_and_cache_examples(args, dataset):
     print("Preprocessing Goes here")
@@ -568,12 +585,13 @@ def main():
             torch.save(model.cpu().state_dict(), f)       
         print("saved model path")
         
-        # evaluate("Biden", args, model) 
-        # evaluate("Sanders", args, model)
-        # evaluate("Warren", args, model)
-        # evaluate("Yang", args, model)
-        # evaluate("Buttigieg", args, model)
-        # evaluate("Klobuchar", args, model)
+        evaluate("Biden", args, model) 
+        evaluate("Sanders", args, model)
+        evaluate("Warren", args, model)
+        evaluate("Yang", args, model)
+        evaluate("Buttigieg", args, model)
+        evaluate("Klobuchar", args, model)
+        evaluate("Trump", args, model)
      
 
 if __name__ == "__main__":
