@@ -10,6 +10,8 @@ best_model_output.txt: contains the text output of the best run on L3_classifica
 
 W266_paper.pdf: Final Paper
 
+Final Presentation_W266_Das_Kumar: Slides for final presentation
+
 ## data
 metrics.xlsx: Contains results from all hyperparameter runs. Included in the appendix of the final paper
 
