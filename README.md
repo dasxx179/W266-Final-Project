@@ -18,20 +18,20 @@ metrics.xlsx: Contains results from all hyperparameter runs. Included in the app
 Visualizations.ipynb: Contains the code used to generate the graphics in the final paper
 
 ## data_collection_and_prep
-L1 Data Prep.ipynb: Contains the code used to ingest the L1 data from the Fake News Corpus in 10k row chunks and compile it into text files for pretraining
+L1 Data Prep.ipynb: Contains the code used to ingest the D1 (formerly known as L1) data from the Fake News Corpus in 10k row chunks and compile it into text files for pretraining
 
-L2 Scraper.ipynb: Contains the code used to scrape websites on the 7 chosen political topics and combines the results into a single .txt file. Intermediate steps involved manually removing HTML formatting code that come through via the Scraper
+L2 Scraper.ipynb: Contains the code used to scrape websites on the 7 chosen political topics and combines the results into a single .txt file. Intermediate steps involved manually removing HTML formatting code that come through via the Scraper. This is the D2 data (formerly known as L2 Data)
 
 Scraper_test_data.ipynb: Contains the code used to scrape information from the canddiates' interviews on the New York times as well as their websites / relevant platforms. Trump tweets were pulled from http://www.trumptwitterarchive.com/archive
 
-L3 and Test Data Preprocessing.ipynb: Contains code to preprocess L3 and Test data so it is ready for BERT and LSTM.
+L3 and Test Data Preprocessing.ipynb: Contains code to preprocess D3 (formerly known as L3 data) and Test data so it is ready for BERT and LSTM.
 
 ## training_scripts
-L1_pretraining.ipynb: Runs the L1 data using [Huggingface's run_language_modeling.py script](https://github.com/huggingface/transformers/blob/master/examples/run_language_modeling.py) to pre-train the model. This was split into 10 subtasks to be more manageable
+L1_pretraining.ipynb: Runs the D1 (formerly known as L1) data using [Huggingface's run_language_modeling.py script](https://github.com/huggingface/transformers/blob/master/examples/run_language_modeling.py) to pre-train the model. This was split into 10 subtasks to be more manageable
 
-L2_pretraining.ipynb: Runs the L2 data using [Huggingface's run_language_modeling.py script](https://github.com/huggingface/transformers/blob/master/examples/run_language_modeling.py) to pre-train the model
+L2_pretraining.ipynb: Runs the D2 (formerly known as L2) data using [Huggingface's run_language_modeling.py script](https://github.com/huggingface/transformers/blob/master/examples/run_language_modeling.py) to pre-train the model
 
-L3_classification.ipynb: Runs the L3 data and classification task using the L3_from_pretrain.py script
+L3_classification.ipynb: Runs the D3 (formerly known as L3) data and classification task using the L3_from_pretrain.py script
 
 L3_from_pretrain.py: Performs the training job for the final Sequence classification task. Runs validation on the dev dataset and provides F1 scores. Provides extremity scores on the test dataset
 
@@ -61,11 +61,11 @@ train_lstm.py: Training script for LSTM Baseline model
 - Websites that were scraped for Democratic candidates are within Scraper_test_data.ipynb
 - Trump Tweets: http://www.trumptwitterarchive.com/archive
 
-### L3 Data
-L3 data sources are specfied as an additional column in the datasets [here](https://drive.google.com/drive/folders/1pTroDoyG3iIyQP7VcA2yVU3owkIPFjzM?usp=sharing), which were manually pulled
+### D3 Data
+D3 data sources are specfied as an additional column in the datasets [here](https://drive.google.com/drive/folders/1pTroDoyG3iIyQP7VcA2yVU3owkIPFjzM?usp=sharing), which were manually pulled
 
-### L2 Data
-Websites that were scraped for L2 data are within L2 Scraper.ipynb
+### D2 Data
+Websites that were scraped for D2 data are within L2 Scraper.ipynb
 
-### L1 Data
+### D1 Data
 Pulled from the [Fake News Corpus](https://github.com/several27/FakeNewsCorpus/releases/tag/v1.0)
