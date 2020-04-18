@@ -10,6 +10,8 @@ best_model_output.txt: contains the text output of the best run on L3_classifica
 
 W266_paper.pdf: Final Paper
 
+Final Presentation_W266_Das_Kumar: Slides for final presentation
+
 ## data
 metrics.xlsx: Contains results from all hyperparameter runs. Included in the appendix of the final paper
 
@@ -42,6 +44,7 @@ train_lstm.py: Training script for LSTM Baseline model
 # References
 
 ## Coding Sources
+* The library we used to implement BERT was the pytorch implementation found in Huggingface: https://github.com/huggingface/transformers
 * For LSTM Baseline model (lstm_baseline_cleaned.ipynb, model_lstm.py, and train_lstm.py): https://github.com/danwild/sagemaker-sentiment-analysis
 * Pretraining script was directly leveraged from [Huggingface](https://github.com/huggingface/transformers/blob/master/examples/run_language_modeling.py)
 * For L3 and Test Data Preprocessing.ipynb: https://mccormickml.com/2019/07/22/BERT-fine-tuning/#3-tokenization--input-formatting
